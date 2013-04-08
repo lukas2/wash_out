@@ -33,6 +33,9 @@ xml.definitions 'xmlns' => 'http://schemas.xmlsoap.org/wsdl/',
     @map.keys.each do |operation|
       xml.operation :name => operation do
         xml.tag! "soap:operation", :soapAction => operation
+        if @map[operation][:doc]
+          xml.tag! "soap:documentation", @map[operation][:doc]
+        end
         xml.input do
           xml.tag! "soap:body",
             :use => "encoded", :encodingStyle => 'http://schemas.xmlsoap.org/soap/encoding/',

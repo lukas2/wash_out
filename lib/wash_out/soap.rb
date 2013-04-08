@@ -31,7 +31,8 @@ module WashOut
           :in           => WashOut::Param.parse_def(options[:args]),
           :out          => WashOut::Param.parse_def(options[:return]),
           :to           => options[:to] || action,
-          :response_tag => options[:response_tag] || default_response_tag
+          :response_tag => options[:response_tag] || default_response_tag,
+          :doc          => options[:doc]
         }
       end
     end
